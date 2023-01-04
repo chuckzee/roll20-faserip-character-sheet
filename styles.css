@@ -35,6 +35,9 @@
 
 /* Button Reset */
 
+button[type="roll"].power-roll-button {
+	font-size: 10px;
+}
 
 .charsheet .sheet-wrapper button[type="roll"]:before {
     content: ""!important;

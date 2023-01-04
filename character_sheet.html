@@ -3,7 +3,6 @@
 
      <!-- Sheet Header -->
 <div class="sheet-2colrow">
-
     <div class="sheet-col">
         <p style="text-align: left;">
             <img src="http://i.imgur.com/NdmuU6e.gif" style="max-height: 100px;" />
@@ -183,269 +182,327 @@
                             <div class="sheet-item sheet-small"><label>Attribute</label></div>
                             <div class="sheet-item sheet-small"><label></label></div>
                             <div class="sheet-item sheet-med"><label>Rank</label></div>
+                            <div class="sheet-item sheet-puny"><label>Ticks</label></div>
                         </div>
                         <div class="sheet-row">
                             <div class="sheet-item sheet-puny"></div>
                             <div class="sheet-item sheet-small"><label>Fighting:</label></div>
-                            <div class="sheet-item sheet-small"><button class="sheet-button" type="roll" name="attr_Fight_roll" value="&{template:default} {{name=Fighting Roll}} {{Rank=@{VFighting}}} {{Attack-Evade=[[1d100]]}} {{Karma Target=?{Karma Target|None|Bronze|Silver|Gold}}}">Roll</button></div>
+                            <div class="sheet-item sheet-small"><button class="sheet-button" type="roll" name="attr_Fight_roll" value="&{template:default} {{name=@{name} rolls Fighting}} {{Rank=@{VFighting} [@{Fighting}]}} {{Rank Range=Bronze: @{Fighting_bronze_rank_range}, Silver: @{Fighting_silver_rank_range}, Gold: @{Fighting_gold_rank_range}}} {{Attack-Evade=[[1d100]]}} {{Karma Target=?{Karma Target|None|Bronze|Silver|Gold}}}">Roll</button></div>
                             <!-- <input type="number" name="attr_Fighting_roll" /> -->
                             <div class="sheet-item sheet-med">
                                 <select name="attr_VFighting">
                                     <option value="_"></option>
-    								<option value="Zero (66-97 Bronze) (98-99 Silver) (100 Gold)">Zero [0]</option>
-									<option value="Terrible (61-94 Bronze) (95-99 Silver) (100 Gold)">Terrible [2]</option>
-									<option value="Bad (56-90 Bronze) (91-99 Silver) (100 Gold)">Bad [4]</option>
-									<option value="Average (51-85 Bronze) (86-97 Silver) (98-100 Gold)">Average [6]</option>
-									<option value="Decent (46-80 Bronze) (81-97 Silver) (98-100 Gold)">Decent [10]</option>
-									<option value="Great (41-75 Bronze) (76-94 Silver) (95-100 Gold)">Great [20]</option>
-									<option value="World Class (36-70 Bronze) (71-94 Silver) (95-100 Gold)">World Class [30]</option>
-									<option value="Fantastic (31-65 Bronze) (66-90 Silver) (91-100 Gold)">Fantastic [40]</option>
-									<option value="Astounding (26-60 Bronze) (61-90 Silver) (91-100 Gold)">Astounding [50]</option>
-									<option value="Wondrous (21-55 Bronze) (56-85 Silver) (86-100 Gold)">Wondrous [75]</option>
-									<option value="Phenomenal (16-50 Bronze) (51-85 Silver) (86-100 Gold)">Phenomenal [100]</option>
-									<option value="Single Shift (11-45 Bronze) (46-80 Silver) (81-100 Gold)">Single Shift [150]</option>
-									<option value="Double Shift (7-45 Bronze) (46-80 Silver) (81-100 Gold)">Double Shift [200]</option>
-									<option value="Triple Shift (4-40 Bronze) (41-75 Silver) (76-100 Gold)">Triple Shift [500]</option>
-									<option value="Planetary (2-40 Bronze) (41-75 Silver) (76-100 Gold)">Planetary [1000]</option>
-									<option value="Stellar (2-35 Bronze) (36-70 Silver) (71-100 Gold)">Stellar [3000]</option>
-									<option value="Cosmic (2-30 Bronze) (31-65 Silver) (66-100 Gold)">Cosmic [5000]</option>
-									<option value="Infinite (2-25 Bronze) (26-60 Silver) (61-100 Gold)">Infinite [∞]</option>
+                                    <option value="Zero">Zero [0]</option>
+                                    <option value="Terrible">Terrible [2]</option>
+                                    <option value="Bad">Bad [4]</option>
+                                    <option value="Average">Average [6]</option>
+                                    <option value="Decent">Decent [10]</option>
+                                    <option value="Great">Great [20]</option>
+                                    <option value="World Class">World Class [30]</option>
+                                    <option value="Fantastic">Fantastic [40]</option>
+                                    <option value="Astounding">Astounding [50]</option>
+                                    <option value="Wondrous">Wondrous [75]</option>
+                                    <option value="Phenomenal">Phenomenal [100]</option>
+                                    <option value="Single Shift">Single Shift [150]</option>
+                                    <option value="Double Shift">Double Shift [200]</option>
+                                    <option value="Triple Shift">Triple Shift [500]</option>
+                                    <option value="Planetary">Planetary [1000]</option>
+                                    <option value="Stellar">Stellar [3000]</option>
+                                    <option value="Cosmic">Cosmic [5000]</option>
+                                    <option value="Infinite">Infinite [∞]</option>
                                 </select></div>
-                            <div class="sheet-item sheet-small"><input type="number" name="attr_Fighting" value="@Fighting"/></div>
+                            <div class="sheet-item sheet-puny"><input type="hidden" name="attr_Fighting" value="@Fighting"/>
+                                <input type="hidden" name="attr_Fighting_damage_value" value="@Fighting_damage_value"/>
+                                <input type="hidden" name="attr_Fighting_bronze_rank_range" value="@Fighting_bronze_rank_range"/>
+                                <input type="hidden" name="attr_Fighting_silver_rank_range" value="@Fighting_silver_rank_range"/>
+                                <input type="hidden" name="attr_Fighting_gold_rank_range" value="@Fighting_gold_rank_range"/>
+                            <input type="number" step="1" min="0" name="attr_FightingTic" value="@FightingTic"/></div>
                         </div>
                         <div class="sheet-row">
                             <div class="sheet-item sheet-puny"></div>
                             <div class="sheet-item sheet-small"><label>Agility:</label></div>
-                            <div class="sheet-item sheet-small"><button class="sheet-button" type="roll" name="attr_Agi_roll" value="&{template:default} {{name=Agility Roll}} {{Rank=@{VAgility}}} {{Attack-Dodge=[[1d100]]}} {{Karma Target=?{Karma Target|None|Bronze|Silver|Gold}}}">Roll</button></div>
+                            <div class="sheet-item sheet-small"><button class="sheet-button" type="roll" name="attr_Agi_roll" value="&{template:default} {{name=@{name} rolls Agility}} {{Rank=@{VAgility} [@{Agility}]}} {{Rank Range=Bronze: @{Agility_bronze_rank_range}, Silver: @{Agility_silver_rank_range}, Gold: @{Agility_gold_rank_range}}} {{Attack-Dodge=[[1d100]]}} {{Karma Target=?{Karma Target|None|Bronze|Silver|Gold}}}">Roll</button></div>
                             <!-- <input type="number" name="attr_Agility_Roll"/></div> -->
                             <div class="sheet-item sheet-med">
                                 <select name="attr_VAgility">
                                     <option value="_"></option>
-    								<option value="Zero (66-97 Bronze) (98-99 Silver) (100 Gold)">Zero [0]</option>
-									<option value="Terrible (61-94 Bronze) (95-99 Silver) (100 Gold)">Terrible [2]</option>
-									<option value="Bad (56-90 Bronze) (91-99 Silver) (100 Gold)">Bad [4]</option>
-									<option value="Average (51-85 Bronze) (86-97 Silver) (98-100 Gold)">Average [6]</option>
-									<option value="Decent (46-80 Bronze) (81-97 Silver) (98-100 Gold)">Decent [10]</option>
-									<option value="Great (41-75 Bronze) (76-94 Silver) (95-100 Gold)">Great [20]</option>
-									<option value="World Class (36-70 Bronze) (71-94 Silver) (95-100 Gold)">World Class [30]</option>
-									<option value="Fantastic (31-65 Bronze) (66-90 Silver) (91-100 Gold)">Fantastic [40]</option>
-									<option value="Astounding (26-60 Bronze) (61-90 Silver) (91-100 Gold)">Astounding [50]</option>
-									<option value="Wondrous (21-55 Bronze) (56-85 Silver) (86-100 Gold)">Wondrous [75]</option>
-									<option value="Phenomenal (16-50 Bronze) (51-85 Silver) (86-100 Gold)">Phenomenal [100]</option>
-									<option value="Single Shift (11-45 Bronze) (46-80 Silver) (81-100 Gold)">Single Shift [150]</option>
-									<option value="Double Shift (7-45 Bronze) (46-80 Silver) (81-100 Gold)">Double Shift [200]</option>
-									<option value="Triple Shift (4-40 Bronze) (41-75 Silver) (76-100 Gold)">Triple Shift [500]</option>
-									<option value="Planetary (2-40 Bronze) (41-75 Silver) (76-100 Gold)">Planetary [1000]</option>
-									<option value="Stellar (2-35 Bronze) (36-70 Silver) (71-100 Gold)">Stellar [3000]</option>
-									<option value="Cosmic (2-30 Bronze) (31-65 Silver) (66-100 Gold)">Cosmic [5000]</option>
-									<option value="Infinite (2-25 Bronze) (26-60 Silver) (61-100 Gold)">Infinite [∞]</option>
+                                    <option value="Zero">Zero [0]</option>
+                                    <option value="Terrible">Terrible [2]</option>
+                                    <option value="Bad">Bad [4]</option>
+                                    <option value="Average">Average [6]</option>
+                                    <option value="Decent">Decent [10]</option>
+                                    <option value="Great">Great [20]</option>
+                                    <option value="World Class">World Class [30]</option>
+                                    <option value="Fantastic">Fantastic [40]</option>
+                                    <option value="Astounding">Astounding [50]</option>
+                                    <option value="Wondrous">Wondrous [75]</option>
+                                    <option value="Phenomenal">Phenomenal [100]</option>
+                                    <option value="Single Shift">Single Shift [150]</option>
+                                    <option value="Double Shift">Double Shift [200]</option>
+                                    <option value="Triple Shift">Triple Shift [500]</option>
+                                    <option value="Planetary">Planetary [1000]</option>
+                                    <option value="Stellar">Stellar [3000]</option>
+                                    <option value="Cosmic">Cosmic [5000]</option>
+                                    <option value="Infinite">Infinite [∞]</option>
                                 </select></div>
-                            <div class="sheet-item sheet-small"><input type="number" name="attr_Agility" value="@Agility"/></div>
+                            <div class="sheet-item sheet-puny"><input type="hidden" name="attr_Agility" value="@Agility"/>
+                                <input type="hidden" name="attr_Agility_damage_value" value="@Agility_damage_value"/>
+                                <input type="hidden" name="attr_Agility_bronze_rank_range" value="@Agility_bronze_rank_range"/>
+                                <input type="hidden" name="attr_Agility_silver_rank_range" value="Agility_silver_rank_range"/>
+                                <input type="hidden" name="attr_Agility_gold_rank_range" value="@Agility_gold_rank_range"/>
+                                <input type="number" step="1" min="0" name="attr_AgilityTic" value="@AgilityTic"/></div>
                         </div>
                         <div class="sheet-row">
                             <div class="sheet-item sheet-puny"></div>
                             <div class="sheet-item sheet-small"><label>Strength:</label></div>
-                            <div class="sheet-item sheet-small"><button class="sheet-button" type="roll" name="attr_Str_roll" value="&{template:default} {{name=Strength Roll}} {{Rank=@{VStrength}}} {{Attack-Blocking=[[1d100]]}} {{Karma Target=?{Karma Target|None|Bronze|Silver|Gold}}}">Roll</button></div>
+                            <div class="sheet-item sheet-small"><button class="sheet-button" type="roll" name="attr_Str_roll" value="&{template:default} {{name=@{name} rolls Strength}} {{Rank=@{VStrength} [@{Strength}]}} {{Rank Range=Bronze: @{Strength_bronze_rank_range}, Silver: @{Strength_silver_rank_range}, Gold: @{Strength_gold_rank_range}}} {{Attack-Blocking=[[1d100]]}} {{Karma Target=?{Karma Target|None|Bronze|Silver|Gold}}}">Roll</button></div>
                             <!--<input type="number" name="attr_Strength_Roll"/></div> -->
                             <div class="sheet-item sheet-med">
                                 <select name="attr_VStrength">
                                     <option value="_"></option>
-    								<option value="Zero (66-97 Bronze) (98-99 Silver) (100 Gold)">Zero [0]</option>
-									<option value="Terrible (61-94 Bronze) (95-99 Silver) (100 Gold)">Terrible [2]</option>
-									<option value="Bad (56-90 Bronze) (91-99 Silver) (100 Gold)">Bad [4]</option>
-									<option value="Average (51-85 Bronze) (86-97 Silver) (98-100 Gold)">Average [6]</option>
-									<option value="Decent (46-80 Bronze) (81-97 Silver) (98-100 Gold)">Decent [10]</option>
-									<option value="Great (41-75 Bronze) (76-94 Silver) (95-100 Gold)">Great [20]</option>
-									<option value="World Class (36-70 Bronze) (71-94 Silver) (95-100 Gold)">World Class [30]</option>
-									<option value="Fantastic (31-65 Bronze) (66-90 Silver) (91-100 Gold)">Fantastic [40]</option>
-									<option value="Astounding (26-60 Bronze) (61-90 Silver) (91-100 Gold)">Astounding [50]</option>
-									<option value="Wondrous (21-55 Bronze) (56-85 Silver) (86-100 Gold)">Wondrous [75]</option>
-									<option value="Phenomenal (16-50 Bronze) (51-85 Silver) (86-100 Gold)">Phenomenal [100]</option>
-									<option value="Single Shift (11-45 Bronze) (46-80 Silver) (81-100 Gold)">Single Shift [150]</option>
-									<option value="Double Shift (7-45 Bronze) (46-80 Silver) (81-100 Gold)">Double Shift [200]</option>
-									<option value="Triple Shift (4-40 Bronze) (41-75 Silver) (76-100 Gold)">Triple Shift [500]</option>
-									<option value="Planetary (2-40 Bronze) (41-75 Silver) (76-100 Gold)">Planetary [1000]</option>
-									<option value="Stellar (2-35 Bronze) (36-70 Silver) (71-100 Gold)">Stellar [3000]</option>
-									<option value="Cosmic (2-30 Bronze) (31-65 Silver) (66-100 Gold)">Cosmic [5000]</option>
-									<option value="Infinite (2-25 Bronze) (26-60 Silver) (61-100 Gold)">Infinite [∞]</option>
+                                    <option value="Zero">Zero [0]</option>
+                                    <option value="Terrible">Terrible [2]</option>
+                                    <option value="Bad">Bad [4]</option>
+                                    <option value="Average">Average [6]</option>
+                                    <option value="Decent">Decent [10]</option>
+                                    <option value="Great">Great [20]</option>
+                                    <option value="World Class">World Class [30]</option>
+                                    <option value="Fantastic">Fantastic [40]</option>
+                                    <option value="Astounding">Astounding [50]</option>
+                                    <option value="Wondrous">Wondrous [75]</option>
+                                    <option value="Phenomenal">Phenomenal [100]</option>
+                                    <option value="Single Shift">Single Shift [150]</option>
+                                    <option value="Double Shift">Double Shift [200]</option>
+                                    <option value="Triple Shift">Triple Shift [500]</option>
+                                    <option value="Planetary">Planetary [1000]</option>
+                                    <option value="Stellar">Stellar [3000]</option>
+                                    <option value="Cosmic">Cosmic [5000]</option>
+                                    <option value="Infinite">Infinite [∞]</option>
                                 </select></div>
-                            <div class="sheet-item sheet-small"><input type="number" name="attr_Strength" value="@Strength"/></div>
+                            <div class="sheet-item sheet-puny"><input type="hidden" name="attr_Strength" value="@Strength"/>
+                                <input type="hidden" name="attr_Strength_damage_value" value="@Strength_damage_value"/>
+                                <input type="hidden" name="attr_Strength_bronze_rank_range" value="@Strength_bronze_rank_range"/>
+                                <input type="hidden" name="attr_Strength_silver_rank_range" value="Strength_silver_rank_range"/>
+                                <input type="hidden" name="attr_Strength_gold_rank_range" value="@Strength_gold_rank_range"/>
+                                <input type="hidden" name="attr_Strength_range" value="@Strength_range"/>
+                                <input type="number" step="1" min="0" name="attr_StrengthTic" value="@StrengthTic"/></div>
                         </div>
                         <div class="sheet-row">
                             <div class="sheet-item sheet-puny"></div>
                             <div class="sheet-item sheet-small"><label>Endurance:</label></div>
-                            <div class="sheet-item sheet-small"><button class="sheet-button" type="roll" name="attr_End_roll" value="&{template:default} {{name=Endurance Roll}} {{Rank=@{VEndurance}}} {{Attack-Resistance=[[1d100]]}} {{Karma Target=?{Karma Target|None|Bronze|Silver|Gold}}}">Roll</button></div>
+                            <div class="sheet-item sheet-small"><button class="sheet-button" type="roll" name="attr_End_roll" value="&{template:default} {{name=@{name} rolls Endurance}} {{Rank=@{VEndurance} [@{Endurance}]}} {{Rank Range=Bronze: @{Endurance_bronze_rank_range}, Silver: @{Endurance_silver_rank_range}, Gold: @{Endurance_gold_rank_range}}} {{Attack-Resistance=[[1d100]]}} {{Karma Target=?{Karma Target|None|Bronze|Silver|Gold}}}">Roll</button></div>
                             <!--<input type="number" name="attr_Endurance_Roll"/></div> -->
                             <div class="sheet-item sheet-med">
                                 <select name="attr_VEndurance">
                                     <option value="_"></option>
-    								<option value="Zero (66-97 Bronze) (98-99 Silver) (100 Gold)">Zero [0]</option>
-									<option value="Terrible (61-94 Bronze) (95-99 Silver) (100 Gold)">Terrible [2]</option>
-									<option value="Bad (56-90 Bronze) (91-99 Silver) (100 Gold)">Bad [4]</option>
-									<option value="Average (51-85 Bronze) (86-97 Silver) (98-100 Gold)">Average [6]</option>
-									<option value="Decent (46-80 Bronze) (81-97 Silver) (98-100 Gold)">Decent [10]</option>
-									<option value="Great (41-75 Bronze) (76-94 Silver) (95-100 Gold)">Great [20]</option>
-									<option value="World Class (36-70 Bronze) (71-94 Silver) (95-100 Gold)">World Class [30]</option>
-									<option value="Fantastic (31-65 Bronze) (66-90 Silver) (91-100 Gold)">Fantastic [40]</option>
-									<option value="Astounding (26-60 Bronze) (61-90 Silver) (91-100 Gold)">Astounding [50]</option>
-									<option value="Wondrous (21-55 Bronze) (56-85 Silver) (86-100 Gold)">Wondrous [75]</option>
-									<option value="Phenomenal (16-50 Bronze) (51-85 Silver) (86-100 Gold)">Phenomenal [100]</option>
-									<option value="Single Shift (11-45 Bronze) (46-80 Silver) (81-100 Gold)">Single Shift [150]</option>
-									<option value="Double Shift (7-45 Bronze) (46-80 Silver) (81-100 Gold)">Double Shift [200]</option>
-									<option value="Triple Shift (4-40 Bronze) (41-75 Silver) (76-100 Gold)">Triple Shift [500]</option>
-									<option value="Planetary (2-40 Bronze) (41-75 Silver) (76-100 Gold)">Planetary [1000]</option>
-									<option value="Stellar (2-35 Bronze) (36-70 Silver) (71-100 Gold)">Stellar [3000]</option>
-									<option value="Cosmic (2-30 Bronze) (31-65 Silver) (66-100 Gold)">Cosmic [5000]</option>
-									<option value="Infinite (2-25 Bronze) (26-60 Silver) (61-100 Gold)">Infinite [∞]</option>
+                                    <option value="Zero">Zero [0]</option>
+                                    <option value="Terrible">Terrible [2]</option>
+                                    <option value="Bad">Bad [4]</option>
+                                    <option value="Average">Average [6]</option>
+                                    <option value="Decent">Decent [10]</option>
+                                    <option value="Great">Great [20]</option>
+                                    <option value="World Class">World Class [30]</option>
+                                    <option value="Fantastic">Fantastic [40]</option>
+                                    <option value="Astounding">Astounding [50]</option>
+                                    <option value="Wondrous">Wondrous [75]</option>
+                                    <option value="Phenomenal">Phenomenal [100]</option>
+                                    <option value="Single Shift">Single Shift [150]</option>
+                                    <option value="Double Shift">Double Shift [200]</option>
+                                    <option value="Triple Shift">Triple Shift [500]</option>
+                                    <option value="Planetary">Planetary [1000]</option>
+                                    <option value="Stellar">Stellar [3000]</option>
+                                    <option value="Cosmic">Cosmic [5000]</option>
+                                    <option value="Infinite">Infinite [∞]</option>
                                 </select></div>
-                            <div class="sheet-item sheet-small"><input type="number" name="attr_Endurance" value="@Endurance"/></div>
+                            <div class="sheet-item sheet-puny"><input type="hidden" name="attr_Endurance" value="@Endurance"/>
+                                <input type="hidden" name="attr_Endurance_damage_value" value="@Endurance_damage_value"/>
+                                <input type="hidden" name="attr_Endurance_bronze_rank_range" value="@Endurance_bronze_rank_range"/>
+                                <input type="hidden" name="attr_Endurance_silver_rank_range" value="Endurance_silver_rank_range"/>
+                                <input type="hidden" name="attr_Endurance_gold_rank_range" value="@Endurance_gold_rank_range"/>
+                                <input type="hidden" name="attr_Endurance_range" value="@Endurance_range"/>
+                                <input type="number" step="1" min="0" name="attr_EnduranceTic" value="@EnduranceTic"/></div>
                         </div>
                         <div class="sheet-row">
                             <div class="sheet-item sheet-puny"></div>
                             <div class="sheet-item sheet-small"><label>Reason:</label></div>
-                            <div class="sheet-item sheet-small"><button class="sheet-button" type="roll" name="attr_Reas_roll" value="&{template:default} {{name=Reason Roll}} {{Rank=@{VReason}}} {{Knowledge=[[1d100]]}} {{Karma Target=?{Karma Target|None|Bronze|Silver|Gold}}}">Roll</button></div>
+                            <div class="sheet-item sheet-small"><button class="sheet-button" type="roll" name="attr_Reas_roll" value="&{template:default} {{name=@{name} rolls Reason}} {{Rank=@{VReason} [@{Reason}]}} {{Rank Range=Bronze: @{Reason_bronze_rank_range}, Silver: @{Reason_silver_rank_range}, Gold: @{Reason_gold_rank_range}}} {{Knowledge=[[1d100]]}} {{Karma Target=?{Karma Target|None|Bronze|Silver|Gold}}}">Roll</button></div>
                             <!--<input type="number" name="attr_Reason_Roll"/></div> -->
                             <div class="sheet-item sheet-med">
                                 <select name="attr_VReason">
                                     <option value="_"></option>
-    								<option value="Zero (66-97 Bronze) (98-99 Silver) (100 Gold)">Zero [0]</option>
-									<option value="Terrible (61-94 Bronze) (95-99 Silver) (100 Gold)">Terrible [2]</option>
-									<option value="Bad (56-90 Bronze) (91-99 Silver) (100 Gold)">Bad [4]</option>
-									<option value="Average (51-85 Bronze) (86-97 Silver) (98-100 Gold)">Average [6]</option>
-									<option value="Decent (46-80 Bronze) (81-97 Silver) (98-100 Gold)">Decent [10]</option>
-									<option value="Great (41-75 Bronze) (76-94 Silver) (95-100 Gold)">Great [20]</option>
-									<option value="World Class (36-70 Bronze) (71-94 Silver) (95-100 Gold)">World Class [30]</option>
-									<option value="Fantastic (31-65 Bronze) (66-90 Silver) (91-100 Gold)">Fantastic [40]</option>
-									<option value="Astounding (26-60 Bronze) (61-90 Silver) (91-100 Gold)">Astounding [50]</option>
-									<option value="Wondrous (21-55 Bronze) (56-85 Silver) (86-100 Gold)">Wondrous [75]</option>
-									<option value="Phenomenal (16-50 Bronze) (51-85 Silver) (86-100 Gold)">Phenomenal [100]</option>
-									<option value="Single Shift (11-45 Bronze) (46-80 Silver) (81-100 Gold)">Single Shift [150]</option>
-									<option value="Double Shift (7-45 Bronze) (46-80 Silver) (81-100 Gold)">Double Shift [200]</option>
-									<option value="Triple Shift (4-40 Bronze) (41-75 Silver) (76-100 Gold)">Triple Shift [500]</option>
-									<option value="Planetary (2-40 Bronze) (41-75 Silver) (76-100 Gold)">Planetary [1000]</option>
-									<option value="Stellar (2-35 Bronze) (36-70 Silver) (71-100 Gold)">Stellar [3000]</option>
-									<option value="Cosmic (2-30 Bronze) (31-65 Silver) (66-100 Gold)">Cosmic [5000]</option>
-									<option value="Infinite (2-25 Bronze) (26-60 Silver) (61-100 Gold)">Infinite [∞]</option>
+                                    <option value="Zero">Zero [0]</option>
+                                    <option value="Terrible">Terrible [2]</option>
+                                    <option value="Bad">Bad [4]</option>
+                                    <option value="Average">Average [6]</option>
+                                    <option value="Decent">Decent [10]</option>
+                                    <option value="Great">Great [20]</option>
+                                    <option value="World Class">World Class [30]</option>
+                                    <option value="Fantastic">Fantastic [40]</option>
+                                    <option value="Astounding">Astounding [50]</option>
+                                    <option value="Wondrous">Wondrous [75]</option>
+                                    <option value="Phenomenal">Phenomenal [100]</option>
+                                    <option value="Single Shift">Single Shift [150]</option>
+                                    <option value="Double Shift">Double Shift [200]</option>
+                                    <option value="Triple Shift">Triple Shift [500]</option>
+                                    <option value="Planetary">Planetary [1000]</option>
+                                    <option value="Stellar">Stellar [3000]</option>
+                                    <option value="Cosmic">Cosmic [5000]</option>
+                                    <option value="Infinite">Infinite [∞]</option>
                                 </select></div>
+                                <div class="sheet-item sheet-puny"><input type="hidden" name="attr_Reason" value="@Reason"/>
+                                    <input type="hidden" name="attr_Reason_damage_value" value="@Reason_damage_value"/>
+                                    <input type="hidden" name="attr_Reason_bronze_rank_range" value="@Reason_bronze_rank_range"/>
+                                    <input type="hidden" name="attr_Reason_silver_rank_range" value="@Reason_silver_rank_range"/>
+                                    <input type="hidden" name="attr_Reason_gold_rank_range" value="@Reason_gold_rank_range"/>
+                                    <input type="hidden" name="attr_Reason_range" value="@Reason_range"/>
+                                    <input type="number" step="1" min="0" name="attr_ReasonTic" value="@ReasonTic"/></div>
                         </div>
                         <div class="sheet-row">
                             <div class="sheet-item sheet-puny"></div>
                             <div class="sheet-item sheet-small"><label>Intuition:</label></div>
-                            <div class="sheet-item sheet-small"><button class="sheet-button" type="roll" name="attr_Int_roll" value="&{template:default} {{name=Intuition Roll}} {{Rank=@{VIntuition}}} {{Sensing=[[1d100]]}} {{Karma Target=?{Karma Target|None|Bronze|Silver|Gold}}}">Roll</button></div>
+                            <div class="sheet-item sheet-small"><button class="sheet-button" type="roll" name="attr_Int_roll" value="&{template:default} {{name=@{name} rolls Intuition}} {{Rank=@{VIntuition} [@{Intuition}]}} {{Rank Range=Bronze: @{Intuition_bronze_rank_range}, Silver: @{Intuition_silver_rank_range}, Gold: @{Intuition_gold_rank_range}}} {{Sensing=[[1d100]]}} {{Karma Target=?{Karma Target|None|Bronze|Silver|Gold}}}">Roll</button></div>
                             <!--<input type="number" name="attr_Intuition_Roll"/></div> -->
                             <div class="sheet-item sheet-med">
                                 <select name="attr_VIntuition">
                                     <option value="_"></option>
-    								<option value="Zero (66-97 Bronze) (98-99 Silver) (100 Gold)">Zero [0]</option>
-									<option value="Terrible (61-94 Bronze) (95-99 Silver) (100 Gold)">Terrible [2]</option>
-									<option value="Bad (56-90 Bronze) (91-99 Silver) (100 Gold)">Bad [4]</option>
-									<option value="Average (51-85 Bronze) (86-97 Silver) (98-100 Gold)">Average [6]</option>
-									<option value="Decent (46-80 Bronze) (81-97 Silver) (98-100 Gold)">Decent [10]</option>
-									<option value="Great (41-75 Bronze) (76-94 Silver) (95-100 Gold)">Great [20]</option>
-									<option value="World Class (36-70 Bronze) (71-94 Silver) (95-100 Gold)">World Class [30]</option>
-									<option value="Fantastic (31-65 Bronze) (66-90 Silver) (91-100 Gold)">Fantastic [40]</option>
-									<option value="Astounding (26-60 Bronze) (61-90 Silver) (91-100 Gold)">Astounding [50]</option>
-									<option value="Wondrous (21-55 Bronze) (56-85 Silver) (86-100 Gold)">Wondrous [75]</option>
-									<option value="Phenomenal (16-50 Bronze) (51-85 Silver) (86-100 Gold)">Phenomenal [100]</option>
-									<option value="Single Shift (11-45 Bronze) (46-80 Silver) (81-100 Gold)">Single Shift [150]</option>
-									<option value="Double Shift (7-45 Bronze) (46-80 Silver) (81-100 Gold)">Double Shift [200]</option>
-									<option value="Triple Shift (4-40 Bronze) (41-75 Silver) (76-100 Gold)">Triple Shift [500]</option>
-									<option value="Planetary (2-40 Bronze) (41-75 Silver) (76-100 Gold)">Planetary [1000]</option>
-									<option value="Stellar (2-35 Bronze) (36-70 Silver) (71-100 Gold)">Stellar [3000]</option>
-									<option value="Cosmic (2-30 Bronze) (31-65 Silver) (66-100 Gold)">Cosmic [5000]</option>
-									<option value="Infinite (2-25 Bronze) (26-60 Silver) (61-100 Gold)">Infinite [∞]</option>
+                                    <option value="Zero">Zero [0]</option>
+                                    <option value="Terrible">Terrible [2]</option>
+                                    <option value="Bad">Bad [4]</option>
+                                    <option value="Average">Average [6]</option>
+                                    <option value="Decent">Decent [10]</option>
+                                    <option value="Great">Great [20]</option>
+                                    <option value="World Class">World Class [30]</option>
+                                    <option value="Fantastic">Fantastic [40]</option>
+                                    <option value="Astounding">Astounding [50]</option>
+                                    <option value="Wondrous">Wondrous [75]</option>
+                                    <option value="Phenomenal">Phenomenal [100]</option>
+                                    <option value="Single Shift">Single Shift [150]</option>
+                                    <option value="Double Shift">Double Shift [200]</option>
+                                    <option value="Triple Shift">Triple Shift [500]</option>
+                                    <option value="Planetary">Planetary [1000]</option>
+                                    <option value="Stellar">Stellar [3000]</option>
+                                    <option value="Cosmic">Cosmic [5000]</option>
+                                    <option value="Infinite">Infinite [∞]</option>
                                 </select></div>
+                                <div class="sheet-item sheet-puny"><input type="hidden" name="attr_Intuition" value="@Intuition"/>
+                                    <input type="hidden" name="attr_Intuition_damage_value" value="@Intuition_damage_value"/>
+                                    <input type="hidden" name="attr_Intuition_bronze_rank_range" value="@Intuition_bronze_rank_range"/>
+                                    <input type="hidden" name="attr_Intuition_silver_rank_range" value="@Intuition_silver_rank_range"/>
+                                    <input type="hidden" name="attr_Intuition_gold_rank_range" value="@Intuition_gold_rank_range"/>
+                                    <input type="hidden" name="attr_Intuition_range" value="@Intuition_range"/>
+                                    <input type="number" step="1" min="0" name="attr_IntuitionTic" value="@IntuitionTic"/></div>
                         </div>
                         <div class="sheet-row">
                             <div class="sheet-item sheet-puny"></div>
                             <div class="sheet-item sheet-small"><label>Psyche:</label></div>
-                            <div class="sheet-item sheet-small"><button class="sheet-button" type="roll" name="attr_Psy_roll" value="&{template:default} {{name=Psyche Roll}} {{Rank=@{VPsyche}}} {{Attack-Resistance=[[1d100]]}} {{Karma Target=?{Karma Target|None|Bronze|Silver|Gold}}}">Roll</button></div>
+                            <div class="sheet-item sheet-small"><button class="sheet-button" type="roll" name="attr_Psy_roll" value="&{template:default} {{name=@{name} rolls Psyche}} {{Rank=@{VPsyche} [@{Psyche}]}} {{Rank Range=Bronze: @{Psyche_bronze_rank_range}, Silver: @{Psyche_silver_rank_range}, Gold: @{Psyche_gold_rank_range}}} {{Attack-Resistance=[[1d100]]}} {{Karma Target=?{Karma Target|None|Bronze|Silver|Gold}}}">Roll</button></div>
                             <!--<input type="number" name="attr_Psyche_roll"/></div> -->
                             <div class="sheet-item sheet-med">
                                 <select name="attr_VPsyche">
                                     <option value="_"></option>
-    								<option value="Zero (66-97 Bronze) (98-99 Silver) (100 Gold)">Zero [0]</option>
-									<option value="Terrible (61-94 Bronze) (95-99 Silver) (100 Gold)">Terrible [2]</option>
-									<option value="Bad (56-90 Bronze) (91-99 Silver) (100 Gold)">Bad [4]</option>
-									<option value="Average (51-85 Bronze) (86-97 Silver) (98-100 Gold)">Average [6]</option>
-									<option value="Decent (46-80 Bronze) (81-97 Silver) (98-100 Gold)">Decent [10]</option>
-									<option value="Great (41-75 Bronze) (76-94 Silver) (95-100 Gold)">Great [20]</option>
-									<option value="World Class (36-70 Bronze) (71-94 Silver) (95-100 Gold)">World Class [30]</option>
-									<option value="Fantastic (31-65 Bronze) (66-90 Silver) (91-100 Gold)">Fantastic [40]</option>
-									<option value="Astounding (26-60 Bronze) (61-90 Silver) (91-100 Gold)">Astounding [50]</option>
-									<option value="Wondrous (21-55 Bronze) (56-85 Silver) (86-100 Gold)">Wondrous [75]</option>
-									<option value="Phenomenal (16-50 Bronze) (51-85 Silver) (86-100 Gold)">Phenomenal [100]</option>
-									<option value="Single Shift (11-45 Bronze) (46-80 Silver) (81-100 Gold)">Single Shift [150]</option>
-									<option value="Double Shift (7-45 Bronze) (46-80 Silver) (81-100 Gold)">Double Shift [200]</option>
-									<option value="Triple Shift (4-40 Bronze) (41-75 Silver) (76-100 Gold)">Triple Shift [500]</option>
-									<option value="Planetary (2-40 Bronze) (41-75 Silver) (76-100 Gold)">Planetary [1000]</option>
-									<option value="Stellar (2-35 Bronze) (36-70 Silver) (71-100 Gold)">Stellar [3000]</option>
-									<option value="Cosmic (2-30 Bronze) (31-65 Silver) (66-100 Gold)">Cosmic [5000]</option>
-									<option value="Infinite (2-25 Bronze) (26-60 Silver) (61-100 Gold)">Infinite [∞]</option>
+                                    <option value="Zero">Zero [0]</option>
+                                    <option value="Terrible">Terrible [2]</option>
+                                    <option value="Bad">Bad [4]</option>
+                                    <option value="Average">Average [6]</option>
+                                    <option value="Decent">Decent [10]</option>
+                                    <option value="Great">Great [20]</option>
+                                    <option value="World Class">World Class [30]</option>
+                                    <option value="Fantastic">Fantastic [40]</option>
+                                    <option value="Astounding">Astounding [50]</option>
+                                    <option value="Wondrous">Wondrous [75]</option>
+                                    <option value="Phenomenal">Phenomenal [100]</option>
+                                    <option value="Single Shift">Single Shift [150]</option>
+                                    <option value="Double Shift">Double Shift [200]</option>
+                                    <option value="Triple Shift">Triple Shift [500]</option>
+                                    <option value="Planetary">Planetary [1000]</option>
+                                    <option value="Stellar">Stellar [3000]</option>
+                                    <option value="Cosmic">Cosmic [5000]</option>
+                                    <option value="Infinite">Infinite [∞]</option>
                                 </select></div>
+                                <div class="sheet-item sheet-puny"><input type="hidden" name="attr_Psyche" value="@Psyche"/>
+                                    <input type="hidden" name="attr_Psyche_damage_value" value="@Psyche_damage_value"/>
+                                    <input type="hidden" name="attr_Psyche_bronze_rank_range" value="@Psyche_bronze_rank_range"/>
+                                    <input type="hidden" name="attr_Psyche_silver_rank_range" value="@Psyche_silver_rank_range"/>
+                                    <input type="hidden" name="attr_Psyche_gold_rank_range" value="@Psyche_gold_rank_range"/>
+                                    <input type="hidden" name="attr_Psyche_range" value="@Psyche_range"/>
+                                    <input type="number" step="1" min="0" name="attr_PsycheTic" value="@PsycheTic"/></div>
                         </div>
                         <div class="sheet-row">
                             <div class="sheet-item sheet-puny"></div>
                             <div class="sheet-item sheet-small"><label>Fame:</label></div>
                             <div class="sheet-item sheet-small">
-                                <button class="sheet-button" type="roll" name="attr_Pop_roll" value="&{template:default} {{name=Fame Roll}} {{Rank=@{VPopularity}}} {{Charm-Intimidate=[[1d100]]}} {{Karma Target=?{Karma Target|None|Bronze|Silver|Gold}}}">Roll</button></div>
+                                <button class="sheet-button" type="roll" name="attr_Pop_roll" value="&{template:default} {{name=@{name} rolls Fame}} {{Rank=@{VPopularity} [@{Popularity}]}} {{Rank Range=Bronze: @{Popularity_bronze_rank_range}, Silver: @{Popularity_silver_rank_range}, Gold: @{Popularity_gold_rank_range}}} {{Charm-Intimidate=[[1d100]]}} {{Karma Target=?{Karma Target|None|Bronze|Silver|Gold}}}">Roll</button></div>
                                 <!--<input type="number" name="attr_Popularity_roll"/></div>-->
                             <div class="sheet-item sheet-med">
                                 <select name="attr_VPopularity">
                                     <option value="_"></option>
-    								<option value="Zero (66-97 Bronze) (98-99 Silver) (100 Gold)">Zero [0]</option>
-									<option value="Terrible (61-94 Bronze) (95-99 Silver) (100 Gold)">Terrible [2]</option>
-									<option value="Bad (56-90 Bronze) (91-99 Silver) (100 Gold)">Bad [4]</option>
-									<option value="Average (51-85 Bronze) (86-97 Silver) (98-100 Gold)">Average [6]</option>
-									<option value="Decent (46-80 Bronze) (81-97 Silver) (98-100 Gold)">Decent [10]</option>
-									<option value="Great (41-75 Bronze) (76-94 Silver) (95-100 Gold)">Great [20]</option>
-									<option value="World Class (36-70 Bronze) (71-94 Silver) (95-100 Gold)">World Class [30]</option>
-									<option value="Fantastic (31-65 Bronze) (66-90 Silver) (91-100 Gold)">Fantastic [40]</option>
-									<option value="Astounding (26-60 Bronze) (61-90 Silver) (91-100 Gold)">Astounding [50]</option>
-									<option value="Wondrous (21-55 Bronze) (56-85 Silver) (86-100 Gold)">Wondrous [75]</option>
-									<option value="Phenomenal (16-50 Bronze) (51-85 Silver) (86-100 Gold)">Phenomenal [100]</option>
-									<option value="Single Shift (11-45 Bronze) (46-80 Silver) (81-100 Gold)">Single Shift [150]</option>
-									<option value="Double Shift (7-45 Bronze) (46-80 Silver) (81-100 Gold)">Double Shift [200]</option>
-									<option value="Triple Shift (4-40 Bronze) (41-75 Silver) (76-100 Gold)">Triple Shift [500]</option>
-									<option value="Planetary (2-40 Bronze) (41-75 Silver) (76-100 Gold)">Planetary [1000]</option>
-									<option value="Stellar (2-35 Bronze) (36-70 Silver) (71-100 Gold)">Stellar [3000]</option>
-									<option value="Cosmic (2-30 Bronze) (31-65 Silver) (66-100 Gold)">Cosmic [5000]</option>
-									<option value="Infinite (2-25 Bronze) (26-60 Silver) (61-100 Gold)">Infinite [∞]</option>
+                                    <option value="Zero">Zero [0]</option>
+                                    <option value="Terrible">Terrible [2]</option>
+                                    <option value="Bad">Bad [4]</option>
+                                    <option value="Average">Average [6]</option>
+                                    <option value="Decent">Decent [10]</option>
+                                    <option value="Great">Great [20]</option>
+                                    <option value="World Class">World Class [30]</option>
+                                    <option value="Fantastic">Fantastic [40]</option>
+                                    <option value="Astounding">Astounding [50]</option>
+                                    <option value="Wondrous">Wondrous [75]</option>
+                                    <option value="Phenomenal">Phenomenal [100]</option>
+                                    <option value="Single Shift">Single Shift [150]</option>
+                                    <option value="Double Shift">Double Shift [200]</option>
+                                    <option value="Triple Shift">Triple Shift [500]</option>
+                                    <option value="Planetary">Planetary [1000]</option>
+                                    <option value="Stellar">Stellar [3000]</option>
+                                    <option value="Cosmic">Cosmic [5000]</option>
+                                    <option value="Infinite">Infinite [∞]</option>
                                 </select></div>
+                                <div class="sheet-item sheet-puny"><input type="hidden" name="attr_Popularity" value="@Popularity"/>
+                                    <input type="hidden" name="attr_Popularity_damage_value" value="@Popularity_damage_value"/>
+                                    <input type="hidden" name="attr_Popularity_bronze_rank_range" value="@Popularity_bronze_rank_range"/>
+                                    <input type="hidden" name="attr_Popularity_silver_rank_range" value="@Popularity_silver_rank_range"/>
+                                    <input type="hidden" name="attr_Popularity_gold_rank_range" value="@Popularity_gold_rank_range"/>
+                                    <input type="hidden" name="attr_Popularity_range" value="@Popularity_range"/>
+                                    <input type="number" step="1" min="0" name="attr_PopularityTic" value="@PopularityTic"/></div>
                         </div>
                         <div class="sheet-row">
                             <div class="sheet-item sheet-puny"></div>
                             <div class="sheet-item sheet-small"><label>Wealth:</label></div>
-                            <div class="sheet-item sheet-small"><button class="sheet-button" type="roll" name="attr_Res_roll" value="&{template:default} {{name=Wealth Roll}} {{Rank=@{VResources}}} {{Buying=[[1d100]]}} {{Karma Target=?{Karma Target|None|Bronze|Silver|Gold}}}">Roll</button></div>
+                            <div class="sheet-item sheet-small"><button class="sheet-button" type="roll" name="attr_Res_roll" value="&{template:default} {{name=@{name} rolls Wealth}} {{Rank=@{VResources} [@{Resources}]}} {{Rank Range=Bronze @{Resources_bronze_rank_range}, Silver @{Resources_silver_rank_range}, Gold @{Resources_gold_rank_range}}} {{Buying=[[1d100]]}} {{Karma Target=?{Karma Target|None|Bronze|Silver|Gold}}}">Roll</button></div>
                                 <!--<input type="number" name="attr_Resources_roll"/></div> -->
                             <div class="sheet-item sheet-med">
                                 <select name="attr_VResources">
                                     <option value="_"></option>
-    								<option value="Zero (66-97 Bronze) (98-99 Silver) (100 Gold)">Zero [0]</option>
-									<option value="Terrible (61-94 Bronze) (95-99 Silver) (100 Gold)">Terrible [2]</option>
-									<option value="Bad (56-90 Bronze) (91-99 Silver) (100 Gold)">Bad [4]</option>
-									<option value="Average (51-85 Bronze) (86-97 Silver) (98-100 Gold)">Average [6]</option>
-									<option value="Decent (46-80 Bronze) (81-97 Silver) (98-100 Gold)">Decent [10]</option>
-									<option value="Great (41-75 Bronze) (76-94 Silver) (95-100 Gold)">Great [20]</option>
-									<option value="World Class (36-70 Bronze) (71-94 Silver) (95-100 Gold)">World Class [30]</option>
-									<option value="Fantastic (31-65 Bronze) (66-90 Silver) (91-100 Gold)">Fantastic [40]</option>
-									<option value="Astounding (26-60 Bronze) (61-90 Silver) (91-100 Gold)">Astounding [50]</option>
-									<option value="Wondrous (21-55 Bronze) (56-85 Silver) (86-100 Gold)">Wondrous [75]</option>
-									<option value="Phenomenal (16-50 Bronze) (51-85 Silver) (86-100 Gold)">Phenomenal [100]</option>
-									<option value="Single Shift (11-45 Bronze) (46-80 Silver) (81-100 Gold)">Single Shift [150]</option>
-									<option value="Double Shift (7-45 Bronze) (46-80 Silver) (81-100 Gold)">Double Shift [200]</option>
-									<option value="Triple Shift (4-40 Bronze) (41-75 Silver) (76-100 Gold)">Triple Shift [500]</option>
-									<option value="Planetary (2-40 Bronze) (41-75 Silver) (76-100 Gold)">Planetary [1000]</option>
-									<option value="Stellar (2-35 Bronze) (36-70 Silver) (71-100 Gold)">Stellar [3000]</option>
-									<option value="Cosmic (2-30 Bronze) (31-65 Silver) (66-100 Gold)">Cosmic [5000]</option>
-									<option value="Infinite (2-25 Bronze) (26-60 Silver) (61-100 Gold)">Infinite [∞]</option>
+                                    <option value="Zero">Zero [0]</option>
+                                    <option value="Terrible">Terrible [2]</option>
+                                    <option value="Bad">Bad [4]</option>
+                                    <option value="Average">Average [6]</option>
+                                    <option value="Decent">Decent [10]</option>
+                                    <option value="Great">Great [20]</option>
+                                    <option value="World Class">World Class [30]</option>
+                                    <option value="Fantastic">Fantastic [40]</option>
+                                    <option value="Astounding">Astounding [50]</option>
+                                    <option value="Wondrous">Wondrous [75]</option>
+                                    <option value="Phenomenal">Phenomenal [100]</option>
+                                    <option value="Single Shift">Single Shift [150]</option>
+                                    <option value="Double Shift">Double Shift [200]</option>
+                                    <option value="Triple Shift">Triple Shift [500]</option>
+                                    <option value="Planetary">Planetary [1000]</option>
+                                    <option value="Stellar">Stellar [3000]</option>
+                                    <option value="Cosmic">Cosmic [5000]</option>
+                                    <option value="Infinite">Infinite [∞]</option>
                                 </select></div>
+                                <div class="sheet-item sheet-puny"><input type="hidden" name="attr_Resources" value="@Resources"/>
+                                    <input type="hidden" name="attr_Resources_damage_value" value="@Resources_damage_value"/>
+                                    <input type="hidden" name="attr_Resources_bronze_rank_range" value="@Resources_bronze_rank_range"/>
+                                    <input type="hidden" name="attr_Resources_silver_rank_range" value="@Resources_silver_rank_range"/>
+                                    <input type="hidden" name="attr_Resources_gold_rank_range" value="@Resources_gold_rank_range"/>
+                                    <input type="hidden" name="attr_Resources_range" value="@Resources_range"/>
+                                    <input type="number" step="1" min="0" name="attr_ResourcesTic" value="@ResourcesTic"/></div>
                         </div>
                         <div class="sheet-row">
                             <div class="sheet-item sheet-puny"></div>
                             <div class="sheet-item sheet-small"><label>Initiative:</label></div>
                             <div class="sheet-item sheet-small">
-                                <button class="sheet-button" type="roll" name="roll_Init" value="&{template:default} {{name=Initiative Roll}} {{Roll=[[1d10]]}}"> Roll</button>
+                                <button class="sheet-button" type="roll" name="roll_Init" value="&{template:default} {{name=Initiative Roll}} {{Roll=[[1d10 &{tracker}]]}}"> Roll</button>
                             </div>
                         </div>
                     </div>
@@ -480,36 +537,44 @@
         <div class="sheet-box">
             <div class="sheet-header">
                             <div class="sheet-item sheet-med"><label>Power</label></div>
-                            <div class="sheet-item sheet-med"><label>Rank</label></div>
                             <div class="sheet-item sheet-small"><label></label></div>
+                            <div class="sheet-item sheet-med"><label>Rank</label></div>
+                            <div class="sheet-item sheet-puny"><label>Ticks</label></div>
             </div>
 			<fieldset class="repeating_Powers">
                 <div class="sheet-row">
                     <div class="sheet-item sheet-med"><input type="text" name="attr_Power_Name" /></div>
+                    <div class="sheet-item sheet-small">
+                        <button class="power-roll-button" type='roll' name='roll_ExampleRoll' value='&{template:default} {{name=@{name} rolls @{Power_Name}}} {{Rank=@{fighting_value} [@{damage_value}]}} {{Rank Range=Bronze @{bronze_rank_range}, Silver @{silver_rank_range}, Gold @{gold_rank_range}}} {{Roll=[[1d100]]}} {{Karma Target=?{Karma Target|None|Bronze|Silver|Gold}}}'>Roll</button>
+                    </div>
                     <div class="sheet-item sheet-med">
                         <select name="attr_fighting_value">
                             <option value="_"></option>
-                            <option value="Zero (66-97 Bronze) (98-99 Silver) (100 Gold)">Zero [0]</option>
-                            <option value="Terrible (61-94 Bronze) (95-99 Silver) (100 Gold)">Terrible [2]</option>
-                            <option value="Bad (56-90 Bronze) (91-99 Silver) (100 Gold)">Bad [4]</option>
-                            <option value="Average (51-85 Bronze) (86-97 Silver) (98-100 Gold)">Average [6]</option>
-                            <option value="Decent (46-80 Bronze) (81-97 Silver) (98-100 Gold)">Decent [10]</option>
-                            <option value="Great (41-75 Bronze) (76-94 Silver) (95-100 Gold)">Great [20]</option>
-                            <option value="World Class (36-70 Bronze) (71-94 Silver) (95-100 Gold)">World Class [30]</option>
-                            <option value="Fantastic (31-65 Bronze) (66-90 Silver) (91-100 Gold)">Fantastic [40]</option>
-                            <option value="Astounding (26-60 Bronze) (61-90 Silver) (91-100 Gold)">Astounding [50]</option>
-                            <option value="Wondrous (21-55 Bronze) (56-85 Silver) (86-100 Gold)">Wondrous [75]</option>
-                            <option value="Phenomenal (16-50 Bronze) (51-85 Silver) (86-100 Gold)">Phenomenal [100]</option>
-                            <option value="Single Shift (11-45 Bronze) (46-80 Silver) (81-100 Gold)">Single Shift [150]</option>
-                            <option value="Double Shift (7-45 Bronze) (46-80 Silver) (81-100 Gold)">Double Shift [200]</option>
-                            <option value="Triple Shift (4-40 Bronze) (41-75 Silver) (76-100 Gold)">Triple Shift [500]</option>
-                            <option value="Planetary (2-40 Bronze) (41-75 Silver) (76-100 Gold)">Planetary [1000]</option>
-                            <option value="Stellar (2-35 Bronze) (36-70 Silver) (71-100 Gold)">Stellar [3000]</option>
-                            <option value="Cosmic (2-30 Bronze) (31-65 Silver) (66-100 Gold)">Cosmic [5000]</option>
-                            <option value="Infinite (2-25 Bronze) (26-60 Silver) (61-100 Gold)">Infinite [∞]</option>
+                            <option value="Zero">Zero [0]</option>
+                            <option value="Terrible">Terrible [2]</option>
+                            <option value="Bad">Bad [4]</option>
+                            <option value="Average">Average [6]</option>
+                            <option value="Decent">Decent [10]</option>
+                            <option value="Great">Great [20]</option>
+                            <option value="World Class">World Class [30]</option>
+                            <option value="Fantastic">Fantastic [40]</option>
+                            <option value="Astounding">Astounding [50]</option>
+                            <option value="Wondrous">Wondrous [75]</option>
+                            <option value="Phenomenal">Phenomenal [100]</option>
+                            <option value="Single Shift">Single Shift [150]</option>
+                            <option value="Double Shift">Double Shift [200]</option>
+                            <option value="Triple Shift">Triple Shift [500]</option>
+                            <option value="Planetary">Planetary [1000]</option>
+                            <option value="Stellar">Stellar [3000]</option>
+                            <option value="Cosmic">Cosmic [5000]</option>
+                            <option value="Infinite">Infinite [∞]</option>
                         </select></div>
-                    <div class="sheet-item sheet-small">
-                        <button type='roll' name='roll_ExampleRoll' value='&{template:default} {{name=@{Power_Name}}} {{Rank=@{fighting_value}}} {{Roll=[[1d100]]}}'>Roll</button>
+                    <div class="sheet-item sheet-puny">
+                        <input type="number" step="1" min="0" name="attr_fighting_tic" value="@fighting_tic"/>
+                        <input type="hidden" name="attr_damage_value" value="@damage_value"/>
+                        <input type="hidden" name="attr_bronze_rank_range" value="@bronze_rank_range"/>
+                        <input type="hidden" name="attr_silver_rank_range" value="@silver_rank_range"/>
+                        <input type="hidden" name="attr_gold_rank_range" value="@gold_rank_range"/>
                     </div>
                 </div>
                 <textarea name="attr_description" title="repeating_Powers_description">Description</textarea>
@@ -520,15 +585,11 @@
 
 	<!-- Negative Qualities -->
     <div class="sheet-col">
-        <h3>Talents</h3>
+        <h3>Specialties</h3>
         <div class="sheet-box">
-            <div class="sheet-row">
-                <div class="sheet-item sheet-med"><label>Number of Talents</label></div>
-                <div class="sheet-item sheet-tiny"><input type="number" name="attr_talentCount" /></div>
-            </div>
             <div class="sheet-header">
-                            <div class="sheet-item sheet-small"><label>Initial Roll</label></div>
-                            <div class="sheet-item sheet-bigger"><label>Talent</label></div>
+                            <div class="sheet-item sheet-small"><label>Rank</label></div>
+                            <div class="sheet-item sheet-bigger"><label>Specialties</label></div>
             </div>
 			<fieldset class="repeating_Talent">
                 <div class="sheet-row">
@@ -611,24 +672,25 @@
                     <div class="sheet-item sheet-big"><input type="text" name="attr_StuntName" /></div>
                     <div class="sheet-item sheet-med">
                         <select name="attr_StuntRankName">
-                            <option value=" "></option>
-                            <option value="Terrible">Terrible</option>
-                            <option value="Bad">Bad</option>
-                            <option value="Average">Average</option>
-                            <option value="Decent">Decent</option>
-                            <option value="Great">Great</option>
-                            <option value="World Class">World Class</option>
-                            <option value="Fantastic">Fantastic</option>
-                            <option value="Astounding">Astounding</option>
-                            <option value="Wondrous">Wondrous</option>
-                            <option value="Phenomenal">Phenomenal</option>
-                            <option value="Single Shift">Single Shift</option>
-                            <option value="Double Shift">Double Shift</option>
-                            <option value="Triple Shift">Triple Shift</option>
-                            <option value="Planetary">Planetary</option>
-                            <option value="Stellar">Stellar</option>
-                            <option value="Cosmic">Cosmic</option>
-                            <option value="Infinite">Infinite</option>
+                            <option value="_"></option>
+                            <option value="Zero">Zero [0]</option>
+                            <option value="Terrible">Terrible [2]</option>
+                            <option value="Bad">Bad [4]</option>
+                            <option value="Average">Average [6]</option>
+                            <option value="Decent">Decent [10]</option>
+                            <option value="Great">Great [20]</option>
+                            <option value="World Class">World Class [30]</option>
+                            <option value="Fantastic">Fantastic [40]</option>
+                            <option value="Astounding">Astounding [50]</option>
+                            <option value="Wondrous">Wondrous [75]</option>
+                            <option value="Phenomenal">Phenomenal [100]</option>
+                            <option value="Single Shift">Single Shift [150]</option>
+                            <option value="Double Shift">Double Shift [200]</option>
+                            <option value="Triple Shift">Triple Shift [500]</option>
+                            <option value="Planetary">Planetary [1000]</option>
+                            <option value="Stellar">Stellar [3000]</option>
+                            <option value="Cosmic">Cosmic [5000]</option>
+                            <option value="Infinite">Infinite [∞]</option>
                         </select>
                     </div>
                     <div class="sheet-item sheet-small"><input type="number" name="attr_StuntRank" /></div>
@@ -662,3 +724,85 @@
         </div>
     </div>
 </div>
+<script type="text/worker">
+    // Derive V values based on base FASERIP attributes
+    let faseripAttributes = ["Fighting","Agility","Strength","Endurance","Reason","Intuition","Psyche","Resources","Popularity"]
+
+    let rankTable = {
+        "Zero":{"Bronze":"66-97","Silver":"98-99","Gold":"100","value":"0"},
+        "Terrible":{"Bronze":"61-94","Silver":"95-99","Gold":"100","value":"2"},
+        "Bad":{"Bronze":"56-90","Silver":"91-99","Gold":"100","value":"4"},
+        "Average":{"Bronze":"51-85","Silver":"86-97","Gold":"98-100","value":"6"},
+        "Decent":{"Bronze":"46-80","Silver":"81-97","Gold":"98-100","value":"10"},
+        "Great":{"Bronze":"41-75","Silver":"76-94","Gold":"95-100","value":"20"},
+        "World Class":{"Bronze":"36-70","Silver":"71-94","Gold":"95-100","value":"30"},
+        "Fantastic":{"Bronze":"31-65","Silver":"66-90","Gold":"91-100","value":"40"},
+        "Astounding":{"Bronze":"26-60","Silver":"61-90","Gold":"91-100","value":"50"},
+        "Wondrous":{"Bronze":"21-55","Silver":"56-85","Gold":"86-100","value":"75"},
+        "Phenomenal":{"Bronze":"16-50","Silver":"51-85","Gold":"86-100","value":"100"},
+        "Single Shift":{"Bronze":"11-45","Silver":"46-80","Gold":"81-100","value":"150"},
+        "Double Shift":{"Bronze":"07-45","Silver":"46-80","Gold":"81-100","value":"200"},
+        "Triple Shift":{"Bronze":"04-40","Silver":"41-75","Gold":"76-100","value":"500"},
+        "Planetary":{"Bronze":"02-40","Silver":"41-75","Gold":"76-100","value":"1000"},
+        "Stellar":{"Bronze":"02-35","Silver":"36-70","Gold":"71-100","value":"3000"},
+        "Cosmic":{"Bronze":"02-30","Silver":"31-65","Gold":"66-100","value":"5000"},
+        "Infinite":{"Bronze":"02-25","Silver":"26-60","Gold":"61-100","value":"∞"}
+    }
+
+    on("change:repeating_Powers:fighting_value sheet:opened", function() {
+        getAttrs([
+           "repeating_Powers_Power_Name",
+           "repeating_Powers_fighting_value",
+           "repeating_Powers_damage_value",
+           "repeating_Powers_bronze_rank_range",
+           "repeating_Powers_silver_rank_range",
+           "repeating_Powers_gold_rank_range"
+         ], function(values) {
+            let stat = values.repeating_Powers_fighting_value;
+            newStat = rankTable[stat].value;
+            bronzeRange = rankTable[stat].Bronze;
+            silverRange = rankTable[stat].Silver;
+            goldRange = rankTable[stat].Gold;
+            setAttrs({
+                repeating_Powers_damage_value: newStat,
+                repeating_Powers_bronze_rank_range: bronzeRange,
+                repeating_Powers_silver_rank_range: silverRange,
+                repeating_Powers_gold_rank_range: goldRange
+            })
+        });
+     });
+
+    faseripAttributes.forEach(function (stat) {
+        let Vstat = "V" + stat;
+        let damageValue = stat + "_damage_value";
+        let bronzeRange = stat + "_bronze_rank_range";
+        let silverRange = stat + "_silver_rank_range";
+        let goldRange = stat + "_gold_rank_range";
+        on("change:" + Vstat + " sheet:opened", function () {
+            getAttrs([
+                Vstat,
+                damageValue,
+                bronzeRange,
+                silverRange,
+                goldRange
+            ], function (Vvalues) {
+                let attributeValue = Vvalues[Vstat];
+                let newStat = rankTable[attributeValue].value;
+                let newBronze = rankTable[attributeValue].Bronze;
+                let newSilver = rankTable[attributeValue].Silver;
+                let newGold = rankTable[attributeValue].Gold;
+                let [bottomBronze] = newBronze.split('-');
+                let [bottomSilver] = newSilver.split('-');
+                let [bottomGold] = newGold.split('-');
+                console.log(bottomBronze, bottomSilver, bottomGold);
+                setAttrs({                            
+                  [stat]: newStat,
+                  [damageValue]: newStat,
+                  [bronzeRange]: newBronze,
+                  [silverRange]: newSilver,
+                  [goldRange]: newGold
+                });
+            });
+        });
+    });
+</script>
