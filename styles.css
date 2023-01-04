@@ -73,8 +73,8 @@ button[type="roll"].power-roll-button {
 .charsheet .sheet-wrapper button[type="roll"]:hover,
 .charsheet .sheet-wrapper .sheet-btn:hover,
 .charsheet .sheet-wrapper .sheet-hider input[type=checkbox]:checked ~ .sheet-btn {
-	background-color: #e74231;
-	border-color: #e74231;
+	background-color: #3A3E66;
+	border-color: #3A3E66;
 }
 
 .charsheet .sheet-wrapper .sheet-hider input[type=checkbox]:checked ~ .sheet-btn {
@@ -113,8 +113,8 @@ button[type="roll"].power-roll-button {
 }
 
 .charsheet .sheet-wrapper h3 {
-    background-color:#e74231;
-    color:#ffff00;
+    background-color:#3A3E66;
+    color:#e2e2e2;
     padding:3px;
 	margin-bottom:5px;
     font-size:18px;
@@ -237,20 +237,20 @@ button[type="roll"].power-roll-button {
 .charsheet .sheet-wrapper .sheet-box {
     padding: 5px;
     margin-top:-5px;
-    border-top: 1px solid #e74231;
-    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#e74231), to(transparent));
-    background-image: -webkit-linear-gradient(#e74231, transparent);
+    border-top: 1px solid #3A3E66;
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#3A3E66), to(transparent));
+    background-image: -webkit-linear-gradient(#3A3E66, transparent);
     background-image:
-        -moz-linear-gradient(#e74231, transparent),
-        -moz-linear-gradient(#e74231, transparent)
+        -moz-linear-gradient(#3A3E66, transparent),
+        -moz-linear-gradient(#3A3E66, transparent)
     ;
     background-image:
-        -o-linear-gradient(#e74231, transparent),
-        -o-linear-gradient(#e74231, transparent)
+        -o-linear-gradient(#3A3E66, transparent),
+        -o-linear-gradient(#3A3E66, transparent)
     ;
     background-image: 
-        linear-gradient(#e74231, transparent),
-        linear-gradient(#e74231, transparent)
+        linear-gradient(#3A3E66, transparent),
+        linear-gradient(#3A3E66, transparent)
     ;
     -moz-background-size:1px 100%;
     background-size:1px 100%;
@@ -465,7 +465,7 @@ button[type="roll"].power-roll-button {
 /* Drawing the Lines! */
 
 .charsheet .sheet-wrapper .sheet-topline label {
-    border-top: 1px solid #e74231;
+    border-top: 1px solid #3A3E66;
     width: 100%;
     margin:auto;
 	font-size:11px;
@@ -479,7 +479,7 @@ button[type="roll"].power-roll-button {
 }
 
 .charsheet .sheet-wrapper .sheet-bottomline label {
-    border-bottom: 1px solid #e74231;
+    border-bottom: 1px solid #3A3E66;
     width: 100%;
     margin:auto;
 	font-size:11px;
