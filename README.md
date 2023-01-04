@@ -4,7 +4,7 @@ This character sheet is a 'fork' of the Roll20 Marvel Superheroes character shee
 
 For now, I am not opening a pull request to add or edit the current implementation of the sheet in Roll20. 
 
-## Additional features:
+## Changes & new features:
 
 * MSH terminology replaced with Faserip's, ranks for example.
 * Fully functional rollers on Attributes and Powers. The rolled table will display the range you need to get Bronze, Silver, Gold results.
