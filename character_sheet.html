@@ -507,27 +507,42 @@
                         </div>
                     </div>
         </div>
-
-        <!-- Wound Stuff -->
-        <div class="sheet-col">
-			<h3>Contacts</h3>
-                <div class="sheet-box">
-                    <div class="sheet-row">
-                        <div class="sheet-item sheet-med"><label>Number of Contacts</label></div>
-                        <div class="sheet-item sheet-tiny"><input type="number" name="attr_ContactsCount" /></div>
-                </div>
-                <div class="sheet-header">
-                            <div class="sheet-item sheet-small"><label>Initial Roll</label></div>
-                            <div class="sheet-item sheet-bigger"><label>Contact</label></div>
-                </div>
-    		    <fieldset class="repeating_Contacts">
-                    <div class="sheet-row">
-                      <div class="sheet-item sheet-small"><input type="number" name="attr_contact_Roll" /></div>
-                      <div class="sheet-item sheet-bigger"><input type="text" name="attr_Contact" /></div>
+        	<!-- Negative Qualities -->
+    <div class="sheet-col">
+        <h3>Specialties</h3>
+        <div class="sheet-box">
+            <div class="sheet-header">
+                            <div class="sheet-item sheet-small"><label>Rank</label></div>
+                            <div class="sheet-item sheet-bigger"><label>Specialties</label></div>
+            </div>
+			<fieldset class="repeating_Talent">
+                <div class="sheet-row">
+                    <div class="sheet-item sheet-small"><input type="number" name="attr_Talent_Roll" /></div>
+                    <div class="sheet-item sheet-bigger"><input type="text" name="attr_Talent" /></div>
                 </div>
             </fieldset>
         </div>
-        </div>
+    </div>
+        <!-- Wound Stuff -->
+   <!--     <div class="sheet-col">-->
+			<!--<h3>Contacts</h3>-->
+   <!--             <div class="sheet-box">-->
+   <!--                 <div class="sheet-row">-->
+   <!--                     <div class="sheet-item sheet-med"><label>Number of Contacts</label></div>-->
+   <!--                     <div class="sheet-item sheet-tiny"><input type="number" name="attr_ContactsCount" /></div>-->
+   <!--                 </div>-->
+   <!--             <div class="sheet-header">-->
+   <!--                         <div class="sheet-item sheet-small"><label>Initial Roll</label></div>-->
+   <!--                         <div class="sheet-item sheet-bigger"><label>Contact</label></div>-->
+   <!--             </div>-->
+   <!-- 		    <fieldset class="repeating_Contacts">-->
+   <!--                 <div class="sheet-row">-->
+   <!--                   <div class="sheet-item sheet-small"><input type="number" name="attr_contact_Roll" /></div>-->
+   <!--                   <div class="sheet-item sheet-bigger"><input type="text" name="attr_Contact" /></div>-->
+   <!--                  </div>-->
+   <!--             </fieldset>-->
+   <!--         </div>-->
+   <!--     </div>-->
 </div>
 		<!-- Third Tier -->
 <div class="sheet-2colrow">
@@ -583,19 +598,24 @@
         </div>
     </div>
 
-	<!-- Negative Qualities -->
-    <div class="sheet-col">
-        <h3>Specialties</h3>
+	    <div class="sheet-col">
+        <h3>Power Stunts in Progress / Scheduled</h3>
         <div class="sheet-box">
             <div class="sheet-header">
-                            <div class="sheet-item sheet-small"><label>Rank</label></div>
-                            <div class="sheet-item sheet-bigger"><label>Specialties</label></div>
+                <div class="sheet-item sheet-big"><label>Stunt Name</label></div>
+                <div class="sheet-item sheet-small"><label>Stunt Rank</label></div>
+                <div class="sheet-item sheet-small"><label>Attempts Made</label></div>
             </div>
-			<fieldset class="repeating_Talent">
+            <fieldset class="repeating_StuntsWant">
                 <div class="sheet-row">
-                    <div class="sheet-item sheet-small"><input type="number" name="attr_Talent_Roll" /></div>
-                    <div class="sheet-item sheet-bigger"><input type="text" name="attr_Talent" /></div>
+                    <div class="sheet-item sheet-big"><input type="text" name="attr_StuntWName" /></div>
+                    <div class="sheet-item sheet-small"><input type="number" name="attr_StuntWRank" /></div>
+                    <div class="sheet-item sheet-small"><input type="number" name="attr_StuntWAttempt" /></div>
                 </div>
+                <div class="sheet-row">
+                    <textarea name="attr_StuntsWNotes" title="repeating_StuntsWant_notes">Notes</textarea>
+                </div>
+                <br /><br /><br /><br />
             </fieldset>
         </div>
     </div>
@@ -656,72 +676,6 @@
                 <h3>Karma Advancement Fund Item</h3>
                 <textarea class="sheet-textarea" name="attr_karmaadvfunditem" value="@KarmaAdvFundItem"></textarea>
             </div>
-    </div>
-</div>
-<div class="sheet-2colrow">
-    <div class="sheet-col">
-        <h3>Completed Power Stunts</h3>
-        <div class="sheet-box">
-            <div class="sheet-header">
-                <div class="sheet-item sheet-big"><label>Stunt</label></div>
-                <div class="sheet-item sheet-med"><label>Rank Name</label></div>
-                <div class="sheet-item sheet-small"><label>Rank</label></div>
-            </div>
-            <fieldset class="repeating_StuntsHave">
-                <div class="sheet-row">
-                    <div class="sheet-item sheet-big"><input type="text" name="attr_StuntName" /></div>
-                    <div class="sheet-item sheet-med">
-                        <select name="attr_StuntRankName">
-                            <option value="_"></option>
-                            <option value="Zero">Zero [0]</option>
-                            <option value="Terrible">Terrible [2]</option>
-                            <option value="Bad">Bad [4]</option>
-                            <option value="Average">Average [6]</option>
-                            <option value="Decent">Decent [10]</option>
-                            <option value="Great">Great [20]</option>
-                            <option value="World Class">World Class [30]</option>
-                            <option value="Fantastic">Fantastic [40]</option>
-                            <option value="Astounding">Astounding [50]</option>
-                            <option value="Wondrous">Wondrous [75]</option>
-                            <option value="Phenomenal">Phenomenal [100]</option>
-                            <option value="Single Shift">Single Shift [150]</option>
-                            <option value="Double Shift">Double Shift [200]</option>
-                            <option value="Triple Shift">Triple Shift [500]</option>
-                            <option value="Planetary">Planetary [1000]</option>
-                            <option value="Stellar">Stellar [3000]</option>
-                            <option value="Cosmic">Cosmic [5000]</option>
-                            <option value="Infinite">Infinite [∞]</option>
-                        </select>
-                    </div>
-                    <div class="sheet-item sheet-small"><input type="number" name="attr_StuntRank" /></div>
-                </div>
-                <div class="sheet-row">
-                    <textarea name="attr_StuntNotes" title="repeating_StuntsHave_notes">Notes</textarea>
-                </div>
-                <br /><br /><br /><br />
-            </fieldset>
-        </div>
-    </div>
-    <div class="sheet-col">
-        <h3>Power Stunts in Progress / Scheduled</h3>
-        <div class="sheet-box">
-            <div class="sheet-header">
-                <div class="sheet-item sheet-big"><label>Stunt Name</label></div>
-                <div class="sheet-item sheet-small"><label>Stunt Rank</label></div>
-                <div class="sheet-item sheet-small"><label>Attempts Made</label></div>
-            </div>
-            <fieldset class="repeating_StuntsWant">
-                <div class="sheet-row">
-                    <div class="sheet-item sheet-big"><input type="text" name="attr_StuntWName" /></div>
-                    <div class="sheet-item sheet-small"><input type="number" name="attr_StuntWRank" /></div>
-                    <div class="sheet-item sheet-small"><input type="number" name="attr_StuntWAttempt" /></div>
-                </div>
-                <div class="sheet-row">
-                    <textarea name="attr_StuntsWNotes" title="repeating_StuntsWant_notes">Notes</textarea>
-                </div>
-                <br /><br /><br /><br />
-            </fieldset>
-        </div>
     </div>
 </div>
 <script type="text/worker">
